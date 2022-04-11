@@ -1,2 +1,11 @@
-hpcc/
-output.txt
+hpcc/src
+hpcc/result.txt
+
+onnx/__pycache__
+onnx/data
+onnx/results
+
+ycsb/ycsb-core
+ycsb/results
+
+temp
