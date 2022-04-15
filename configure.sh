@@ -1,11 +1,5 @@
 #!/bin/bash
 
-if [ $(id -u) != 0 ]
-then
-    echo "This script has to be run as root"
-    exit 1
-fi
-
 info_message () {
     echo -e "\n/**\n * $1\n */\n"
 }
@@ -16,6 +10,28 @@ download_with_curl () {
         curl --location $1 --create-dirs --output $2
     fi
 }
+
+if [ $(id -u) != 0 ]
+then
+    echo "This script has to be run as root"
+    exit 1
+fi
+
+if [ ! "$(grep 'avx' /proc/cpuinfo)" ]
+then
+    echo "The processor doesn't support the AVX instruction set required by MongoDB 5.0"
+    exit 1
+fi
+
+mongo_ip=$1
+
+if [ ! "$mongo_ip" ]
+then
+   echo "MongoDB IP binding not provided"
+   exit 1
+fi
+
+cd "$(dirname ${BASH_SOURCE[0]})"
 
 apt-get update -y
 apt-get upgrade -y
@@ -59,7 +75,11 @@ extract_onnx_data temp/mobilenet.tar.gz mobilenet
 extract_onnx_data temp/googlenet.tar.gz googlenet
 extract_onnx_data temp/resnet.tar.gz resnet
 
-info_message "Retrieving YCSB binaries and dependencies"
+info_message "Configuring nginx"
+apt-get install -y nginx
+cp -r nginx/website/. /var/www/html
+
+info_message "Configuring MongoDB instance"
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | \
     sudo apt-key add -
 
@@ -67,21 +87,24 @@ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb
     sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 
 apt-get update    
-apt-get install -y openjdk-11-jdk maven mongodb-org
-systemctl daemon-reload
-systemctl start mongod
+apt-get install -y mongodb-org
+systemctl enable mongod.service
+systemctl start mongod.service
 
-download_with_curl "https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-0.17.0.tar.gz" temp/ycsb.tar.gz
+info_message "Waiting for mongod to start..."
+until nc -z localhost 27017
+do
+    sleep 1
+done
 
-mkdir ycsb/ycsb-core
-tar -xf temp/ycsb.tar.gz \
-    -C ycsb/ycsb-core \
-    --strip-components 1
+info_message "Creating MongoDB admin user"
+mongosh --quiet ycsb/createUser.js
 
-info_message "Configuring nginx"
-apt-get install -y nginx
-cp -r nginx/website/. /var/www/html
+sed -i "s/<mongo_ip>/$mongo_ip/" ycsb/mongod.conf
+cp ycsb/mongod.conf /etc/mongod.conf
+systemctl restart mongod
 
 rm -rf temp
+chown -R $SUDO_UID:$SUDO_GID .
 info_message "Configuration complete"
 exit 0
