@@ -1,0 +1,232 @@
+{
+  "languages": [
+    { "code": "en", "label": "Angielski" },
+    { "code": "pl", "label": "Polski" }
+  ],
+  "signIn": "Zaloguj się",
+  "signUp": "Załóż konto",
+  "signOut": "Wyloguj się",
+  "reset": "Resetuj",
+  "changePassword": "Zmień",
+  "accountChangePassword": "Zmień hasło",
+  "accountSetCompanyData": "Ustaw dane firmy",
+  "accountSettings": "Ustawienia konta",
+  "save": "Zapisz",
+  "cancel": "Zamknij",
+  "drawer": {
+    "language": "Język",
+    "theme": "Motyw",
+    "user": [
+      { "icon": "receipt", "text": "Faktury", "pathname": "/invoices" },
+      { "icon": "category", "text": "Produkty", "pathname": "/products" },
+      { "icon": "business", "text": "Kontrahenci", "pathname": "/counterparties" },
+      { "icon": "work", "text": "Pracownicy", "pathname": "/employees" },
+      { "icon": "trending_up", "text": "Wizualizacja danych", "pathname": "/dataVisualization" }
+    ]
+  },
+  "notFound": {
+    "header": "o nie! strona nie istnieje!",
+    "description": "Strona, której szukasz jest niedostępna.",
+    "button": "Strona główna"
+  },
+  "table": {
+    "empty": "Brak danych do wyświetlenia",
+    "add": "Dodaj",
+    "delete": "Usuń",
+    "export": "Eksportuj",
+    "edit": "Edytuj",
+    "more": "Więcej",
+    "filter": "Filtr",
+    "deleteText": "Czy jesteś pewien, że chcesz usunąć ten wiersz?",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "actions": "Akcje",
+    "rows": "{from}-{to} z {count}",
+    "rowsSelect": "wierszy",
+    "rowsPerPage": "Wierszy na stronę:",
+    "first": "Pierwsza strona",
+    "previous": "Poprzednia strona",
+    "next": "Następna strona",
+    "last": "Ostatnia strona",
+    "rowsSelected": "{0} wiersz(y) wybrany(ch)",
+    "search": "Szukaj"
+  },
+  "home": {
+    "dialog": {
+      "login": "Logowanie",
+      "register": "Rejestracja",
+      "resetPassword": "Zresetuj hasło",
+      "changePassword": "Zmień hasło",
+      "confirmEmail": "Potwierdź email",
+      "name": "Imię i nazwisko",
+      "email": "Adres email",
+      "password": "Hasło",
+      "newPassword": "Nowe hasło",
+      "forgotPassword": "Zapomniałeś/aś hasła?",
+      "terms": "Rejestracja oznacza akceptację zasad i warunków użytkowania",
+      "pleaseWait": "Proszę czekać",
+      "closeWindow": "Możesz teraz zamknąć to okno",
+      "validation": {
+        "required": "To pole jest wymagane",
+        "email": "Wymagany jest prawidłowy adres email",
+        "password": "Hasło musi zawierać 1 wielką i małą literę, 1 cyfrę i znak specjalny oraz mieć przynajmniej 6 znaków"
+      },
+      "success": {
+        "register": "Konto zostało pomyślnie stworzone. Sprawdź skrzynkę pocztową i potwierdź swój email.",
+        "confirmEmail": "Email został pomyślnie potwierdzony. Możesz teraz zalogować się do swojego konta.",
+        "resetPassword": "Hasło zostało pomyślnie zresetowane. Sprawdź skrzynkę pocztową, aby otrzymać dalsze instrukcje.",
+        "changePassword": "Hasło zostało pomyślnie zmienione. Możesz teraz zalogować się do konta z użyciem nowego hasła."
+      },
+      "error": {
+        "login": "Nieprawidłowy adres email lub hasło",
+        "register": "Konto nie mogło zostać stworzone, proszę spróbować później",
+        "confirmEmail": "Adres email nie mógł zostać potwierdzony (link potwierdzający mógł wygasnąć)",
+        "resetPassword": "Hasło dla podanego konta nie mogło zostać zresetowane",
+        "changePassword": "Hasło nie mogło zostać zmienione (link resetujący mógł wygasnąć)"
+      }
+    },
+    "hero": {
+      "title": "Witamy w Web Invoicer",
+      "description": "Fakturowanie stało się proste. Wystawiaj swoje faktury gdziekolwiek i kiedykolwiek chcesz!"
+    },
+    "features": [
+      {
+        "icon": "dynamic_feed",
+        "header": "Rozbudowane funkcjonalności",
+        "description": "Wystawiaj faktury VAT, proforma, korygujące oraz inne rodzaje dokumentów. Zarządzaj listą pracowników, kontrahentów i dostępnych produktów."
+      },
+      {
+        "icon": "money_off",
+        "header": "W pełni darmowa",
+        "description": "Aplikacja zawsze będzie w pełni darmowa oraz udostępniona na licencji wolnego oprogramowania. Żadna z funkcjonalności nie jest ograniczona."
+      },
+      {
+        "icon": "cloud_download",
+        "header": "Integracja z GUS",
+        "description": "Nasze rozwiązanie pozwala na integrację z bazą danych GUS, w celu szybkiego i łatwego importowania danych kontrahenta."
+      },
+      {
+        "icon": "trending_up",
+        "header": "Wizualizacja danych",
+        "description": "Oferujemy kompleksowy moduł wizualizacji danych, który pozwala zobrazować nasz biznes za pomocą wykresów i różnego rodzaju zestawień."
+      }
+    ],
+    "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
+  },
+  "user": {
+    "success": {
+      "changePassword": "Hasło zostało pomyślnie zmienione",
+      "setCompanyData": "Dane twojej firmy zostały pomyślnie zapisane"
+    },
+    "error": {
+      "changePassword": "Nieprawidłowe hasło",
+      "passwordsEqual": "Nowe hasło musi się różnić od dotychczasowego",
+      "setCompanyData": "Dane twojej firmy nie mogły zostać zapisane, proszę spróbować później"
+    }
+  },
+  "invoices": {
+    "issueCorrective": "Issue corrective invoice",
+    "options": [
+      { "id": "vat", "label": "Faktura VAT" },
+      { "id": "proforma", "label": "Faktura proforma" },
+      { "id": "receipt", "label": "Paragon" }
+    ],
+    "header": {
+      "vat": "Faktura VAT",
+      "proforma": "Faktura proforma",
+      "receipt": "Paragon",
+      "corrective": "Faktura korygująca"
+    },
+    "editor": {
+      "details": "Dane",
+      "counterparty": "Kontrahent",
+      "products": "Produkty",
+      "payment": "Płatność",
+      "netTotal": "Suma netto: {{sum}} zł",
+      "vatTotal": "Suma VAT: {{sum}} zł",
+      "grossTotal": "Do zapłaty: {{sum}} zł"
+    },
+    "paymentTypes": ["Przelew", "Gotówka", "Pobranie", "Karta"],
+    "title": "Faktury",
+    "date": "Data wystawienia",
+    "number": "Numer",
+    "counterparty": "Kontrahent",
+    "netTotal": "Suma netto",
+    "grossTotal": "Suma brutto",
+    "issuer": "Wystawca",
+    "paymentType": "Sposób zapłaty",
+    "deadline": "Termin płatności",
+    "seller": "Sprzedawca",
+    "buyer": "Nabywca",
+    "netPrice": "Cena netto",
+    "netValue": "Wartość netto",
+    "vatValue": "Wartość VAT",
+    "grossValue": "Wartość brutto",
+    "total": "Razem",
+    "amountDue": "Do zapłaty",
+    "issuerSignature": "Osoba upoważniona do wystawienia",
+    "recipientSignature": "Osoba upoważniona do odbioru"
+  },
+  "products": {
+    "ordinal": "Lp.",
+    "title": "Produkty",
+    "name": "Nazwa artykułu (usługi)",
+    "description": "Opis",
+    "count": "Ilość",
+    "unit": "j. m.",
+    "netPrice": "Cena netto",
+    "grossPrice": "Cena brutto",
+    "vatRate": "Stawka VAT",
+    "vatExempt": "ZW",
+    "vatNotApplicable": "NP"
+  },
+  "counterparties": {
+    "title": "Kontrahenci",
+    "name": "Nazwa pełna",
+    "nip": "NIP",
+    "address": "Adres",
+    "postalCode": "Kod pocztowy",
+    "city": "Miasto",
+    "phoneNumber": "Numer kontaktowy"
+  },
+  "employees": {
+    "title": "Pracownicy",
+    "fullName": "Imię i nazwisko",
+    "phoneNumber": "Numer telefonu",
+    "dateAdded": "Data dodania"
+  },
+  "errors": {
+    "create": "Nie można dodać rekordu",
+    "get": "Nie można pobrać listy rekordów",
+    "update": "Nie można zaktualizować rekordu",
+    "delete": "Nie można usunąć rekordu",
+    "details": "Nie można pobrać danych kontrahenta",
+    "getProducts": "Nie można pobrać danych produktów",
+    "getInvoiceItems": "Nie można pobrać pozycji faktury",
+    "invoice": "Nie można zapisać faktury",
+    "invoices": "Nie można pobrać faktur",
+    "export": "Nie można wyeksportować faktury",
+    "createInvoice": "Nie można dodać faktury",
+    "employee": "Nie można stworzyć pracownika",
+    "employees": "Nie można pobrać listy wystawców",
+    "counterparty": "Nie można stworzyć kontrahenta",
+    "counterparties": "Nie można pobrać listy kontrahentów",
+    "product": "Nie można stworzyć produktu",
+    "item": "Nie można zapisać pozycji na fakturze",
+    "text": {
+      "createInvoice": "Dodanie faktury/paragonu jest niemożliwe bez danych twojej firmy. Kliknij ikonę w prawym górnym rogu, by je ustawić.",
+      "create": "Serwer może być nieosiągalny lub dodawany rekord narusza zasady unikalności.",
+      "delete": "Serwer może być nieosiągalny lub usuwany rekord posiada aktywne zależności.",
+      "details": "Kontrahent o podanym numerze NIP nie istnieje.",
+      "serverDown": "Serwer może być nieosiągalny, spróbuj ponownie później."
+    }
+  },
+  "validation": {
+    "required": "To pole jest wymagane",
+    "validNip": "Wymagany jest prawidłowy NIP",
+    "currency": "Wymagana jest dodatnia wartość pieniężna",
+    "phoneNumber": "Wymagany jest prawidłowy numer telefonu",
+    "postalCode": "Wymagany jest prawidłowy kod pocztowy",
+    "positiveInt": "Wymagana jest dodatnia wartość"
+  }
+}

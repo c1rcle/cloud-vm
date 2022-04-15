@@ -78,6 +78,10 @@ tar -xf temp/ycsb.tar.gz \
     -C ycsb/ycsb-core \
     --strip-components 1
 
+info_message "Configuring nginx"
+apt-get install -y nginx
+cp -r nginx/website/. /var/www/html
+
 rm -rf temp
 info_message "Configuration complete"
 exit 0
