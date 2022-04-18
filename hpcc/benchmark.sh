@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp config.txt src/hpccinf.txt
+cp hpccmemf.txt src/hpccmemf.txt
 cd src
 mpirun -np 4 hpcc
 cp hpccoutf.txt ../result.txt
