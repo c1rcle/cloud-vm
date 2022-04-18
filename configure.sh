@@ -98,10 +98,10 @@ do
 done
 
 info_message "Creating MongoDB admin user"
-mongosh --quiet ycsb/createUser.js
+mongosh --quiet "mongodb://localhost/admin" ycsb/server/createUser.js
 
-sed -i "s/<mongo_ip>/$mongo_ip/" ycsb/mongod.conf
-cp ycsb/mongod.conf /etc/mongod.conf
+cp ycsb/server/mongod.conf /etc/mongod.conf
+sed -i "s/<mongo_ip>/$mongo_ip/" /etc/mongod.conf
 systemctl restart mongod
 
 rm -rf temp

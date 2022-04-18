@@ -5,7 +5,7 @@ onnx/__pycache__
 onnx/data
 onnx/results
 
-ycsb/ycsb-core
-ycsb/results
+ycsb/client/ycsb-core
+ycsb/client/results
 
 temp
