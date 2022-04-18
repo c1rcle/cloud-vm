@@ -36,9 +36,5 @@ parser.add_argument(
 )
 
 args = parser.parse_args()
-print(
-    f"Results for model={args.input_dir}, \
-    input_dir={args.input_dir}, \
-    iterations={args.iterations}\n"
-)
+print(f"Results for model={args.input_dir}, input_dir={args.input_dir}, iterations={args.iterations}\n")
 print(run_model(model=args.model, input_dir=args.input_dir, iterations=args.iterations))
