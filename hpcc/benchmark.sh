@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cp hpccmemf.txt src/hpccmemf.txt
 cd src
-mpirun -np 4 hpcc
-cp hpccoutf.txt ../result.txt
+mpirun --use-hwthread-cpus hpcc
+mv hpccoutf.txt ../result.txt

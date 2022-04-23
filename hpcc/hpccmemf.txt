@@ -1,1 +1,1 @@
-Total=
+Total=<mem_size>
