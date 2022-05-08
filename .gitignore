@@ -8,4 +8,8 @@ onnx/results
 ycsb/client/ycsb-core
 ycsb/client/results
 
+fio/result.txt
+
+coremark/results
+
 temp
