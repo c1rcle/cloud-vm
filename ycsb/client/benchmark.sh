@@ -61,9 +61,6 @@ run_benchmark "$ycsb_root/workloads/workloada" "a"
 # Read only (workload C)
 run_benchmark "$ycsb_root/workloads/workloadc" "c"
 
-# Read latest (workload D)
-run_benchmark "$ycsb_root/workloads/workloadd" "d"
-
 # Read-modify-write (workload F)
 run_benchmark "$ycsb_root/workloads/workloadf" "f"
 
