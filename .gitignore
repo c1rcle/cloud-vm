@@ -8,8 +8,9 @@ onnx/results
 ycsb/client/ycsb-core
 ycsb/client/results
 
-fio/result.txt
-
+nginx/results
 coremark/results
+
+fio/result.txt
 
 temp
