@@ -6,23 +6,23 @@ usage () {
     -c  [required] MongoDB connection string
     -n  [required] Test tag
     -r  Database record count
-    -t  Worker threads
-    -o  Target operations per second"
+    -o  Database operation count (run)
+    -t  Worker threads"
     exit 1
 }
 
 record_count=50000
-threads=1
-target=100
+operation_count=1000
+threads=(1)
 
-while getopts y:c:n:r:t:o: option; do
+while getopts y:c:n:r:o:t: option; do
     case $option in
         (y) ycsb_root=$OPTARG;;
         (c) mongo_url=$OPTARG;;
         (n) tag=$OPTARG;;
         (r) record_count=$OPTARG;;
+        (o) operation_count=$OPTARG;;
         (t) threads=$OPTARG;;
-        (o) target=$OPTARG;;
         (*) usage
     esac
 done
@@ -40,16 +40,23 @@ run_benchmark () {
         -p recordcount=$record_count \
         -s > "$output_folder/$2_load_result.txt"
 
-    ./$ycsb_root/bin/ycsb.sh run mongodb -P $1 \
-        -p mongodb.url=$mongo_url \
-        -p recordcount=$record_count \
-        -p measurementtype=timeseries \
-        -threads $threads \
-        -target $target \
-        -s > "$output_folder/$2_run_result.txt"
+    for tcount in "${threads[@]}"
+    do
+        let target_ops=$tcount*$target
+        ./$ycsb_root/bin/ycsb.sh run mongodb -P $1 \
+            -p mongodb.url=$mongo_url \
+            -p recordcount=$record_count \
+            -p operationcount=$operation_count \
+            -p measurementtype=timeseries \
+            -threads $tcount \
+            -s > "$output_folder/$2-$tcount-result.txt"
+    done
 
     mongosh --quiet "$mongo_url" --eval "db.dropDatabase()"
 }
+
+IFS=','
+read -r -a threads <<< "$threads"
 
 timestamp=$(date +%Y-%m-%dT%H-%M-%S)
 output_folder="results/$tag/$timestamp"
