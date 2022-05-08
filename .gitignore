@@ -9,6 +9,7 @@ ycsb/client/ycsb-core
 ycsb/client/results
 
 nginx/results
+nginx/jmeter.log
 coremark/results
 
 fio/result.txt
