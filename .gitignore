@@ -12,6 +12,7 @@ nginx/results
 nginx/jmeter.log
 coremark/results
 
+fio/src
 fio/result.txt
 
 temp

@@ -81,7 +81,17 @@ extract_onnx_data temp/resnet.tar.gz resnet
 
 info_message "Configuring nginx"
 apt-get install -y nginx
-cp -r nginx/website/. /var/www/html
+
+info_message "Configuring fio"
+apt-get install -y libaio-dev
+git clone https://github.com/axboe/fio.git fio/src
+
+pushd .
+cd fio/src
+./configure
+make
+make install
+popd
 
 info_message "Configuring MongoDB instance"
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | \
