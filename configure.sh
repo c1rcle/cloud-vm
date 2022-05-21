@@ -40,10 +40,10 @@ info_message "Retrieving HPCC sources and dependencies"
 apt-get install -y build-essential openmpi-bin libopenmpi-dev libatlas-base-dev
 git clone --depth 1 --branch 1.5.0 https://github.com/icl-utk-edu/hpcc.git hpcc/src
 
-$mem_size=$(grep MemTotal /proc/meminfo | awk '{print int($2 / 1024 * 0.8)}')
+mem_size=$(grep MemTotal /proc/meminfo | awk '{print int($2 / 1024 * 0.8)}')
 cp hpcc/Make.linux hpcc/src/hpl/Make.linux
-cp hpcc/hpccmemf.txt hpcc/src/hpccmemf.txt
-sed -i "s/<mem_size>/$mem_size/" hpcc/src/hpccmemf.txt
+cp hpcc/hpcc.c hpcc/src/src/hpcc.c
+echo "Total=$mem_size" > hpcc/src/hpccmemf.txt
 
 info_message "Building HPCC"
 make -C hpcc/src arch=linux

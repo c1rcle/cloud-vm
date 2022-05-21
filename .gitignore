@@ -1,5 +1,5 @@
 hpcc/src
-hpcc/result.txt
+hpcc/results
 
 onnx/__pycache__
 onnx/data
